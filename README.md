@@ -1,31 +1,281 @@
 # cj
 A website created by a beginner
-기본 정보
-성명: JIE CUI
-직책 및 소속: [성균관대학교 한국어교육학과]
-주요 업무 영역
-언어 학습 및 분석 (한국어 중심)
-번역 및 문장 교정 요청
-학술 텍스트 요약·분석 (인문·사회 분야)
-문화·역사 주제 리서치 및 정리
-감정·관계 관련 서술형 콘텐츠 대화
-전문성 및 관심 분야
-한국어 맞춤법 및 표현 분석
-한국 현대사·사회 이슈(예: 문화대혁명 비교, 민주화 서사)
-어휘 분석 연구 관심
-서사 구성(이야기텔링)
-학습용·커뮤니케이션용 문장 개선
-주요 프로젝트 및 활동
-한국어 교재 어휘 분석 논문 요약 및 비평 수행
-공식/비공식 메시지(월세 입금, 감사 인사 등) 한국어 자연화 작업
-역사·드라마 콘텐츠 맥락 분석(한국 드라마 민주화 장면 등)
-창작 및 장문 스토리텔링 연습
-보유 기술 및 툴
-언어 분석: 한국어 맞춤법, 어휘·문체 분석
-글쓰기: 서술형·설명형·대화체 문장 구성
-리서치: 학술 텍스트 요약 및 핵심 정리
-SNS 채널 및 온라인 활동
-온라인 활동: 학습·대화 중심의 디지털 플랫폼 활용
-비고
-대화 전반에서 언어 정확성, 표현의 뉘앙스, 문화적 맥락에 대한 높은 관심이 확인됨
-개인화된 학습 및 깊이 있는 대화를 지속적으로 선호
+
+import React, { useState } from 'react';
+import Layout from './components/Layout';
+import { 
+  ExternalLink, 
+  CheckCircle, 
+  Info, 
+  ChevronRight, 
+  MessageSquare, 
+  Book, 
+  Heart, 
+  Search, 
+  User, 
+  PenTool, 
+  Globe,
+  GraduationCap,
+  Sparkles,
+  MessageCircle
+} from 'lucide-react';
+
+const App: React.FC = () => {
+  const [activeSection, setActiveSection] = useState('about');
+
+  const renderContent = () => {
+    switch (activeSection) {
+      case 'about':
+        return (
+          <div className="space-y-12">
+            <header className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800 text-zinc-300 text-[10px] font-bold uppercase tracking-widest border border-zinc-700">
+                <Sparkles size={12} className="text-amber-400" />
+                Professional CV
+              </div>
+              <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter leading-[1.1]">
+                언어의 뉘앙스를 <br/>
+                <span className="text-zinc-600">탐구하는 연구자.</span>
+              </h2>
+              <p className="text-zinc-400 text-xl leading-relaxed max-w-2xl font-light">
+                JIE CUI는 한국어를 중심으로 언어 학습, 학술 분석, 그리고 문화적 맥락을 연결하는 전문가입니다. 
+                성균관대학교에서 한국어교육을 전공하며, 텍스트 너머의 깊은 서사를 연구합니다.
+              </p>
+            </header>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="glass-card p-10 rounded-[2rem] space-y-6 group hover:border-zinc-500 transition-all duration-500">
+                <div className="w-14 h-14 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-blue-400 group-hover:scale-110 transition-all">
+                  <GraduationCap size={28} />
+                </div>
+                <div>
+                  <h3 className="text-zinc-500 font-bold text-xs uppercase tracking-[0.2em] mb-4">Identification</h3>
+                  <div className="space-y-3">
+                    <p className="text-white text-2xl font-bold">JIE CUI</p>
+                    <p className="text-zinc-400 text-lg flex items-center gap-2">
+                      성균관대학교 한국어교육학과
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="glass-card p-10 rounded-[2rem] space-y-6 group hover:border-zinc-500 transition-all duration-500">
+                <div className="w-14 h-14 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-rose-400 group-hover:scale-110 transition-all">
+                  <Heart size={28} />
+                </div>
+                <div>
+                  <h3 className="text-zinc-500 font-bold text-xs uppercase tracking-[0.2em] mb-4">Focus & Interests</h3>
+                  <ul className="text-zinc-400 space-y-3 font-medium">
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-rose-500"></div>
+                      한국어 맞춤법 및 표현 분석
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-rose-500"></div>
+                      한국 현대사 및 사회 이슈 분석
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-rose-500"></div>
+                      스토리텔링 및 서사 구성 연구
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'work':
+        return (
+          <div className="space-y-10">
+            <div className="flex justify-between items-end">
+              <h2 className="text-4xl font-bold text-white tracking-tight">Expertise Areas</h2>
+              <p className="text-zinc-500 font-mono text-sm">/01 WORK</p>
+            </div>
+            <div className="grid grid-cols-1 gap-6">
+              {[
+                { title: '언어 학습 및 분석', desc: '한국어 중심의 심도 있는 언어 패턴 및 담화 분석', icon: <MessageSquare className="text-blue-400" /> },
+                { title: '번역 및 문장 교정', desc: '학술적/일상적 텍스트의 자연스러운 현지화 및 교정', icon: <PenTool className="text-emerald-400" /> },
+                { title: '학술 텍스트 요약/분석', desc: '인문·사회 분야 학술 자료의 핵심 구조 파악 및 정리', icon: <Book className="text-amber-400" /> },
+                { title: '서술형 콘텐츠 대화', desc: '감정 및 관계를 다루는 심층적 서사 스토리텔링', icon: <MessageCircle className="text-purple-400" /> },
+              ].map((work, idx) => (
+                <div key={idx} className="glass-card p-8 rounded-3xl flex flex-col md:flex-row md:items-center gap-8 hover:bg-zinc-900/40 transition-all group border-zinc-800/50">
+                  <div className="p-4 bg-zinc-900 border border-zinc-800 rounded-2xl shrink-0 group-hover:border-zinc-600 transition-colors">
+                    {/* Added type parameter to React.cloneElement to fix the 'size' prop error */}
+                    {React.cloneElement(work.icon as React.ReactElement<any>, { size: 24 })}
+                  </div>
+                  <div className="flex-1 space-y-1">
+                    <h3 className="text-white text-xl font-bold">{work.title}</h3>
+                    <p className="text-zinc-500 leading-relaxed">{work.desc}</p>
+                  </div>
+                  <div className="hidden md:block">
+                    <ChevronRight className="text-zinc-800 group-hover:text-zinc-400 transition-colors" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 'projects':
+        return (
+          <div className="space-y-10">
+            <div className="flex justify-between items-end">
+              <h2 className="text-4xl font-bold text-white tracking-tight">Key Projects</h2>
+              <p className="text-zinc-500 font-mono text-sm">/02 PROJECTS</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                { 
+                  title: '어휘 분석 논문 비평', 
+                  category: 'Research', 
+                  desc: '한국어 교재 어휘 분석 관련 학술 논문 요약 및 비평 수행' 
+                },
+                { 
+                  title: '메시지 자연화 작업', 
+                  category: 'Linguistics', 
+                  desc: '공식/비공식 메시지(월세 입금, 감사 인사 등) 한국어 뉘앙스 최적화' 
+                },
+                { 
+                  title: '콘텐츠 맥락 분석', 
+                  category: 'Cultural Studies', 
+                  desc: '한국 드라마 속 민주화 장면 등 역사적·사회적 배경의 맥락 연구' 
+                },
+                { 
+                  title: '장문 스토리텔링 창작', 
+                  category: 'Creative', 
+                  desc: '서사적 구조를 갖춘 장문 이야기 창작 및 감정 서사화 연습' 
+                },
+              ].map((proj, idx) => (
+                <div key={idx} className="glass-card p-10 rounded-[2.5rem] relative overflow-hidden group hover:border-zinc-600 transition-all duration-500">
+                  <div className="absolute top-0 right-0 p-6">
+                    <div className="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                      <ExternalLink size={16} />
+                    </div>
+                  </div>
+                  <div className="text-[11px] font-black text-blue-500 uppercase tracking-[0.3em] mb-6">
+                    {proj.category}
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">{proj.title}</h3>
+                  <p className="text-zinc-500 leading-relaxed font-light">
+                    {proj.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 'skills':
+        return (
+          <div className="space-y-10">
+            <div className="flex justify-between items-end">
+              <h2 className="text-4xl font-bold text-white tracking-tight">Skills & Tools</h2>
+              <p className="text-zinc-500 font-mono text-sm">/03 SKILLS</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="space-y-8">
+                <h3 className="text-zinc-500 font-bold uppercase tracking-[0.2em] text-[10px]">Technical Mastery</h3>
+                <div className="space-y-6">
+                  {[
+                    { label: '한국어 맞춤법 및 문체 분석', level: 96 },
+                    { label: '학술 텍스트 구조화 및 요약', level: 92 },
+                    { label: '설명형·대화체 문장 개선', level: 89 },
+                    { label: '문화·역사 맥락 리서치', level: 90 },
+                  ].map((skill, idx) => (
+                    <div key={idx} className="space-y-3">
+                      <div className="flex justify-between items-end">
+                        <span className="text-white font-medium">{skill.label}</span>
+                        <span className="text-zinc-600 font-mono text-xs">{skill.level}%</span>
+                      </div>
+                      <div className="h-[2px] w-full bg-zinc-900 rounded-full overflow-hidden">
+                        <div 
+                          className="h-full bg-blue-600 rounded-full transition-all duration-1000" 
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-8">
+                <h3 className="text-zinc-500 font-bold uppercase tracking-[0.2em] text-[10px]">Roles & Character</h3>
+                <div className="glass-card p-8 rounded-3xl bg-zinc-900/20 space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 bg-blue-500/10 rounded-lg shrink-0">
+                      <CheckCircle className="text-blue-500" size={18} />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-bold mb-1">수학 과목 대표 (학급 대표)</h4>
+                      <p className="text-zinc-500 text-sm leading-relaxed">학급 내 학습 리더십을 발휘하며 원활한 소통 창구 역할 수행</p>
+                    </div>
+                  </div>
+                  <div className="pt-6 border-t border-zinc-800/50">
+                    <h4 className="text-zinc-500 font-bold text-[10px] uppercase tracking-widest mb-3">General Summary</h4>
+                    <p className="text-zinc-400 text-sm leading-relaxed">
+                      언어의 정확성뿐만 아니라 문화적 뉘앙스를 포착하는 데 탁월한 감각을 지님. 
+                      학술적 깊이와 일상적 소통의 조화를 지향하는 연구자적 면모가 확인됨.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'contact':
+        return (
+          <div className="space-y-10">
+            <div className="flex justify-between items-end">
+              <h2 className="text-4xl font-bold text-white tracking-tight">Connect</h2>
+              <p className="text-zinc-500 font-mono text-sm">/04 CONTACT</p>
+            </div>
+            <div className="glass-card p-16 rounded-[3rem] text-center space-y-8 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              <div className="w-24 h-24 bg-zinc-900 border border-zinc-800 rounded-[2rem] flex items-center justify-center mx-auto text-blue-500 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                <Globe size={48} />
+              </div>
+              <div className="space-y-3 relative">
+                <h3 className="text-4xl font-bold text-white tracking-tighter">Digital Presence</h3>
+                <p className="text-zinc-500 text-lg max-w-md mx-auto">학습과 대화 중심의 디지털 플랫폼을 활용하여 전문 네트워크를 구축하고 있습니다.</p>
+              </div>
+              <div className="flex flex-col md:flex-row gap-4 justify-center relative">
+                <div className="px-6 py-4 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                  <span className="text-zinc-300 font-medium">Digital Native</span>
+                </div>
+                <button className="px-10 py-4 rounded-full bg-white text-black font-black hover:bg-blue-50 transition-all duration-300 transform hover:-translate-y-1 shadow-xl">
+                  Message JIE CUI
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <Layout activeSection={activeSection} setActiveSection={setActiveSection}>
+      <div className="min-h-[70vh]">
+        {renderContent()}
+      </div>
+      <footer className="mt-32 pb-12 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-zinc-900 pt-12">
+        <div className="flex items-center gap-4">
+          <div className="w-8 h-8 rounded-lg accent-gradient flex items-center justify-center text-[10px] font-black text-white">JC</div>
+          <p className="text-zinc-600 text-xs font-mono uppercase tracking-widest">© 2024 JIE CUI / PORTFOLIO</p>
+        </div>
+        <div className="flex gap-8">
+          <a href="#" className="text-zinc-700 hover:text-blue-500 transition-colors text-[10px] font-black uppercase tracking-widest">Privacy</a>
+          <a href="#" className="text-zinc-700 hover:text-blue-500 transition-colors text-[10px] font-black uppercase tracking-widest">Terms</a>
+          <a href="#" className="text-zinc-700 hover:text-blue-500 transition-colors text-[10px] font-black uppercase tracking-widest">Contact</a>
+        </div>
+      </footer>
+    </Layout>
+  );
+};
+
+export default App;
